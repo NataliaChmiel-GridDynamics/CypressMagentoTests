@@ -16,23 +16,23 @@ describe("Should set default billing address.", () => {
 		cy.get("#pass").type(accountUserCredentials.passwordUser);
 		cy.get("button.login span").contains("Sign In").click();
 
-
 		//Set new address
 		cy.visit(
 			"https://magento.softwaretestingboard.com/customer/account/"
 		);
-		cy.contains("span", "Manage Addresses").click();
+
+		cy.get("span").contains("Manage Addresses").click();
+		cy.get("span").contains("Add New Address").click();
+
+		cy.visit(
+			"https://magento.softwaretestingboard.com/customer/address/new/"
+		);
 		cy.get("#telephone").type(userNewAddress.telephoneNumber);
 		cy.get("#street_1").type(userNewAddress.streetAddress);
 		cy.get("#city").type(userNewAddress.cityAddress);
-        cy.get('select#region_id').select('California');
+		cy.get("select#region_id").select("California");
 		cy.get("#zip").type(userNewAddress.postalCode);
-        cy.get("button").contains('Save Address').click();
-        cy.get("span").contains('Default Billing Address');
-        // cy.get("span").contains('Default Billing Address');
-
-
-
-        
+		cy.get("button").contains("Save Address").click();
+		cy.get("span").contains("Default Billing Address");
 	});
 });

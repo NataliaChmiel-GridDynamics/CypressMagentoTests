@@ -27,3 +27,8 @@ export const userNewAddress = {
 	regionAddress: "California",
 	postalCode: "94583",
 };
+
+export const shareWishlistCredentials = {
+	emailAddress: faker.internet.email(),
+	message: faker.lorem.paragraph(),
+};
