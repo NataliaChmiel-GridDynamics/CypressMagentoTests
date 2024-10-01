@@ -5,20 +5,10 @@ describe("Should add products to cart.", () => {
 		cy.visit("/");
 
 		//Verify that home page is visible successfully
-		cy.get("ul.header a").contains("Sign In").click();
-		cy.get('[data-ui-id="page-title-wrapper"]').contains(
-			"Customer Login"
-		);
+		cy.isHomePageVisible();
 
 		//Log in with user credentials
-		cy.get("#email").type(accountUserCredentials.emailUser);
-		cy.get("#pass").type(accountUserCredentials.passwordUser);
-		cy.get("button.login span").contains("Sign In").click();
-		cy.get(".logged-in")
-			.contains(
-				`Welcome, ${accountUserCredentials.firstNameUser} ${accountUserCredentials.lastNameUser}!`
-			)
-			.click();
+		cy.logInWithUserCredentials();
 
 		//Add products to cart from home page
 		cy.contains("span", "Add to Cart").eq(0).click({ force: true });
@@ -29,22 +19,16 @@ describe("Should add products to cart.", () => {
 		cy.get(".counter-number").should("exist");
 
 		//Go to checkout
-		cy.get("span").contains("My Cart").click({ force: true });
-		cy.get("#top-cart-btn-checkout").click();
-		cy.url().should(
-			"eq",
-			"https://magento.softwaretestingboard.com/checkout/"
-		);
+		cy.goToCheckout();
 
 		//Checkout process
 		cy.get("span").contains("Ship Here").click();
 		cy.get('[value="tablerate_bestway"]').click();
 		cy.get("span").contains("Next").click();
-        cy.get("#billing-address-same-as-shipping-checkmo").click();
-        cy.get("span").contains("Place Order").click();
-        cy.get('span').contains("Thank you for your purchase!");
-        cy.get('span').contains('Continue Shopping').click();
+		cy.get("#billing-address-same-as-shipping-checkmo").click();
+		cy.get("span").contains("Place Order").click();
+		cy.get("span").contains("Thank you for your purchase!");
+		cy.get("span").contains("Continue Shopping").click();
 	});
 });
 
-//https://magento.softwaretestingboard.com/sales/order/print/order_id

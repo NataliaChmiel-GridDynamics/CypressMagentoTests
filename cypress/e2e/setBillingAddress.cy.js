@@ -6,15 +6,10 @@ describe("Should set default billing address.", () => {
 		cy.visit("/");
 
 		//Verify that home page is visible successfully
-		cy.get("ul.header a").contains("Sign In").click();
-		cy.get('[data-ui-id="page-title-wrapper"]').contains(
-			"Customer Login"
-		);
+		cy.isHomePageVisible();
 
 		//Log in with user credentials
-		cy.get("#email").type(accountUserCredentials.emailUser);
-		cy.get("#pass").type(accountUserCredentials.passwordUser);
-		cy.get("button.login span").contains("Sign In").click();
+		cy.logInWithUserCredentials();
 
 		//Set new address
 		cy.visit(

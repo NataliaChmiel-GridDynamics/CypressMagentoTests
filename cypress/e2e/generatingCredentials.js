@@ -20,6 +20,7 @@ export const accountUserCredentials = {
 	confirmPasswordUser: passwordUser,
 };
 
+//User new address
 export const userNewAddress = {
 	telephoneNumber: 102345678,
 	streetAddress: "5000 Executive Parkway, Suite 520",
@@ -28,6 +29,7 @@ export const userNewAddress = {
 	postalCode: "94583",
 };
 
+//Share wishlist credentials
 export const shareWishlistCredentials = {
 	emailAddress: faker.internet.email(),
 	message: faker.lorem.paragraph(),
