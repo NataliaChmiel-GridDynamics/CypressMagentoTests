@@ -34,12 +34,15 @@ Cypress.Commands.add("logInWithUserCredentials", () => {
 		.click();
 });
 
-//Log out 
+//Log out
 Cypress.Commands.add("logOut", () => {
-	cy.get('[data-toggle="dropdown"]').click({ multiple: true, force: true });
-    cy.get(
-      'a[href="https://magento.softwaretestingboard.com/customer/account/logout/"]'
-    ).click({ force: true, multiple: true });
+	cy.get('[data-toggle="dropdown"]').click({
+		multiple: true,
+		force: true,
+	});
+	cy.get(
+		'a[href="https://magento.softwaretestingboard.com/customer/account/logout/"]'
+	).click({ force: true, multiple: true });
 });
 
 //Go to checkout
@@ -61,13 +64,17 @@ Cypress.Commands.add("filterItemsToBackpacks", () => {
 	);
 });
 
-//Add products to wishlist 
-
+//Add products to wishlist
 Cypress.Commands.add("addProductsToWishlist", () => {
-	cy.contains("span", "Add to Wish List").click({ force: true });
-		cy.get("div.message-success").should(
-			"include.text",
-			"has been added to your Wish List"
-		);
-		cy.url().should("include", "/wishlist");
+	cy.get(".product-items").within(() => {
+		cy.contains("span", "Add to Wish List")
+			.first()
+			.click({ force: true });
+	});
+
+	cy.get("div.message-success").should(
+		"include.text",
+		"has been added to your Wish List"
+	);
+	cy.url().should("include", "/wishlist");
 });
