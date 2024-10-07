@@ -5,7 +5,6 @@ describe("Should create account with User Credentials and log out successfully."
 		//Verify that home page is visible successfully
 		cy.isHomePageVisible();
 
-
 		//Fill in sign in form
 		cy.createNewAccountWithUserCredentials();
 

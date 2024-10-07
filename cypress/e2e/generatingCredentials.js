@@ -34,3 +34,9 @@ export const shareWishlistCredentials = {
 	emailAddress: faker.internet.email(),
 	message: faker.lorem.paragraph(),
 };
+
+//Review of items
+export const itemsReview = {
+	summary: faker.lorem.sentence(),
+	review: faker.lorem.paragraph(5),
+};

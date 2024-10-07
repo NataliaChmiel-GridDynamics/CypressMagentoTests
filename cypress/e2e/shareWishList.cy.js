@@ -1,4 +1,3 @@
-import { accountUserCredentials } from "./generatingCredentials";
 import { shareWishlistCredentials } from "./generatingCredentials";
 
 describe("Should share wishlist.", () => {

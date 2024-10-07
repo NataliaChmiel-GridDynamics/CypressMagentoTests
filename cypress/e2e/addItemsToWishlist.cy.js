@@ -1,5 +1,3 @@
-import { accountUserCredentials } from "./generatingCredentials";
-
 describe("Should add products to wishlist.", () => {
 	it("Add products to wishlist.", () => {
 		cy.visit("/");

@@ -1,5 +1,3 @@
-import { accountUserCredentials } from "./generatingCredentials";
-
 describe("Should log in with User Credentials and log out successfully.", () => {
 	it("Log in and log out successfully.", () => {
 		cy.visit("/");

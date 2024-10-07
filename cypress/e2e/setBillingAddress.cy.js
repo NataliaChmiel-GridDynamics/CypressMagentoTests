@@ -1,4 +1,3 @@
-import { accountUserCredentials } from "./generatingCredentials";
 import { userNewAddress } from "./generatingCredentials";
 
 describe("Should set default billing address.", () => {

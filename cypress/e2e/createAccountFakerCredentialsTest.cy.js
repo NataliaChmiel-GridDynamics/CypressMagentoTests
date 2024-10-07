@@ -4,7 +4,7 @@ describe("Should create account with Faker Credentials.", () => {
 
 		//Verify that home page is visible successfully
 		cy.isHomePageVisible();
-		cy.get('span').contains('Create an Account').click();
+		cy.get("span").contains("Create an Account").click();
 
 		//Sign in with faker credentials
 		cy.createNewAccountWithFakerCredentials();
