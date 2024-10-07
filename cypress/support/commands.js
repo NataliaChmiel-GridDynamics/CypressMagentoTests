@@ -22,6 +22,19 @@ Cypress.Commands.add("createNewAccountWithUserCredentials", () => {
 	cy.get('[data-ui-id="page-title-wrapper"]').contains("My Account");
 });
 
+//Create account with faker credentials
+Cypress.Commands.add("createNewAccountWithFakerCredentials", () => {
+	cy.get("#firstname").type(accountFakerCredentials.firstName);
+	cy.get("#lastname").type(accountFakerCredentials.lastName);
+	cy.get("#email_address").type(accountFakerCredentials.email);
+	cy.get("#password").type(accountFakerCredentials.password);
+	cy.get("#password-confirmation").type(
+		accountFakerCredentials.confirmPassword
+	);
+	cy.get("button").contains("Create an Account").click();
+	cy.get('[data-ui-id="page-title-wrapper"]').contains("My Account");
+});
+
 //Login with user credentials
 Cypress.Commands.add("logInWithUserCredentials", () => {
 	cy.get("#email").type(accountUserCredentials.emailUser);
@@ -77,4 +90,9 @@ Cypress.Commands.add("addProductsToWishlist", () => {
 		"has been added to your Wish List"
 	);
 	cy.url().should("include", "/wishlist");
+});
+
+//Go back
+Cypress.Commands.add("goBack", () => {
+	cy.go("back");
 });
