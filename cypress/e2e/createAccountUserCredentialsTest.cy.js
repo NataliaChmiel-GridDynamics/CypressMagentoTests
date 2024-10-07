@@ -4,7 +4,6 @@ describe("Should create account with User Credentials and log out successfully."
 
 		//Verify that home page is visible successfully
 		cy.isHomePageVisible();
-		cy.get('span').contains('Create an Account').click();
 
 
 		//Fill in sign in form

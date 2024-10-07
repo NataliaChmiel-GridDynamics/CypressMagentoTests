@@ -11,6 +11,8 @@ Cypress.Commands.add("isHomePageVisible", () => {
 
 //Create account with user credentials
 Cypress.Commands.add("createNewAccountWithUserCredentials", () => {
+	cy.get("span").contains("Create an Account").click();
+
 	cy.get("#firstname").type(accountUserCredentials.firstNameUser);
 	cy.get("#lastname").type(accountUserCredentials.lastNameUser);
 	cy.get("#email_address").type(accountUserCredentials.emailUser);
@@ -24,6 +26,8 @@ Cypress.Commands.add("createNewAccountWithUserCredentials", () => {
 
 //Create account with faker credentials
 Cypress.Commands.add("createNewAccountWithFakerCredentials", () => {
+	cy.get("span").contains("Create an Account").click();
+
 	cy.get("#firstname").type(accountFakerCredentials.firstName);
 	cy.get("#lastname").type(accountFakerCredentials.lastName);
 	cy.get("#email_address").type(accountFakerCredentials.email);
